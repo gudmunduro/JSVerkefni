@@ -8,7 +8,7 @@
 
 4. Tegundir af breytu sem eiga að þýða hún sé ekki neitt
 
-5. === er strangara en == þar sem breyturnar þurfa líka að vera að sömu tegund t.d. með væri ("1" == 1) true en ("1" === 1) væri false
+5. === er strangara en == þar sem breyturnar þurfa líka að vera að sömu tegund t.d. væri ("1" == 1) true en ("1" === 1) væri false
 
 6. var breytur geta verið notaðar allstaðar í fallinu en það er bara hægt að nota let frá block, statement eða expression sem það var búið til í
 
