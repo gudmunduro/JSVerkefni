@@ -1,6 +1,6 @@
 # Verkefni 2 svor
 
-1. ECMAScript er staðal specification fyrir scripting forritunarmál.  Mest þekktasta notkun hanns er JavaScript
+1. ECMAScript er staðal specification fyrir scripting forritunarmál.  Þekktasta notkun hanns er JavaScript
 
 2. Það þýðir að þú þarft ekki að skilgreina hvaða tegund af breytu þú ætlar að nota heldur notarðu bara var/let/const
 
