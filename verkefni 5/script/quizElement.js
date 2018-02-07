@@ -17,10 +17,10 @@ class Quiz extends HTMLElement {
         this.shadow.appendChild(this.questionDiv);
         this.shadow.appendChild(this.answearDiv);
 
-        this.reloadQuestion();
+        this.reloadQuestionView();
     }
 
-    newQuestion()
+    nextQuestion()
     {
         this.core.next();
         if (this.core.isQuizOver)
@@ -29,16 +29,18 @@ class Quiz extends HTMLElement {
         }
         else
         {
-            this.reloadQuestion();
+            this.reloadQuestionView();
         }
     }
 
     displayEndScreen()
     {
+        this.answearDiv.innerHTML = "";
 
+        this.questionText.innerText = "Quiz over";
     }
 
-    reloadQuestion()
+    reloadQuestionView()
     {
         this.answearDiv.innerHTML = "";
 
@@ -51,18 +53,17 @@ class Quiz extends HTMLElement {
             button.dataset.quizInstance = this;
             var quizInstance = this;
             button.onclick = function () {
-                quizInstance.onAnswerButtonPress();
+                quizInstance.onAnswerButtonPress(this.dataset.ansIndex);
             }
             this.answearDiv.appendChild(button);
         }
     }
 
-    // button events
-    onAnswerButtonPress()
+    onAnswerButtonPress(index)
     {
-        if (this.core.isCorrect(this.dataset.ansIndex))
+        if (this.core.isCorrect(index))
         {
-            this.newQuestion();
+            this.nextQuestion();
         }
         else
         {

@@ -45,7 +45,7 @@ class QuizCore{
 
     get isQuizOver()
     {
-        return this.questions.length >= this.currentQuestionIndex;
+        return this.questions.length <= this.currentQuestionIndex;
     }
 
 }
