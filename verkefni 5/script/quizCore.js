@@ -33,6 +33,11 @@ class QuizCore{
         this.currentQuestionIndex++;
     }
 
+    isCorrect(index)
+    {
+        return this.currentQuestion.answers[index].correct;
+    }
+
     get currentQuestion()
     {
         return this.questions[this.currentQuestionIndex];
