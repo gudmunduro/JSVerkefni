@@ -49,4 +49,4 @@ kemur alltaf whitespace á stöðunum sem þú gerir nýja lína sem getur gert 
 
 og þá kemur ekkert whitespace á milli lina.
 
-6. [Quiz (virkar bara í blink og webkit browserum)](https://vsh.gudmunduro.com/JSVerk5/)
+6. [Quiz (virkar bara í Blink og Webkit browserum)](https://vsh.gudmunduro.com/JSVerk5/)
