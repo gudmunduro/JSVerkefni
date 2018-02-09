@@ -48,3 +48,5 @@ kemur alltaf whitespace á stöðunum sem þú gerir nýja lína sem getur gert 
 ```
 
 og þá kemur ekkert whitespace á milli lina.
+
+6. [Quiz (virkar bara í chrome)](https://vsh.gudmunduro.com/JSVerk5/)
