@@ -99,10 +99,10 @@ class Quiz extends HTMLElement {
         let restartButton = document.createElement("button");
         restartButton.innerText = "Reyna aftur";
         let quizInstance = this;
-        restartButton.onclick = function () {
+        restartButton.addEventListener("click", function () {
             quizInstance.core.reset();
             quizInstance.reloadQuestionView();
-        }
+        }, false);
         this.answerDiv.appendChild(restartButton);
     }
 
@@ -118,9 +118,9 @@ class Quiz extends HTMLElement {
             button.innerText = ans.text;
             button.dataset.ansIndex = this.core.currentQuestion.answers.indexOf(ans);
             let quizInstance = this;
-            button.onclick = function () {
+            button.addEventListener("click", function () {
                 quizInstance.onAnswerButtonPress(this.dataset.ansIndex);
-            }
+            }, false);
             this.answerDiv.appendChild(button);
         }
     }
