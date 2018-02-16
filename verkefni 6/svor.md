@@ -6,4 +6,4 @@
 
 3. [Verkefni 6.3](https://rawgit.com/gudmunduroh/JSVerkefni/master/verkefni%206/3/index.html)
 
-4. addEventListener er besta leiðin af því að það er hægt að gera meira með því og það skrifar ekki yfir eventið sem er nú þegar til.W
+4. addEventListener er besta leiðin af því að það er hægt að gera meira með því og það skrifar ekki yfir eventið sem er nú þegar til.
