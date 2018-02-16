@@ -1,6 +1,6 @@
 # Verkefni 6 svör
 
-1. [Verkefni 6.1](https://rawgit.com/gudmunduroh/JSVerkefni/master/verkefni%206/3/index.html)
+1. [Verkefni 6.1](https://rawgit.com/gudmunduroh/JSVerkefni/master/verkefni%206/1/index.html)
 
 2. Prentar út linkinn af firsta elementinu með elementinu sem er með tagið a.
 
