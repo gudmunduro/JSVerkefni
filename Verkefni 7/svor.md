@@ -1,6 +1,6 @@
-# Verkefni 7 svör
+# Verkefni 7 svÃ¶r
 
-1. Callback er kóği sem er í einhverju formi sett sem parameter í fall til şess ağ şağ verği síğan kallağ á hann aftur.  T.d şegar şú ert ağ senda http request á server getur şú sett fall sem parameter sem er síğan kallağ á şegar şağ búiğ.
+1. Callback er kÃ³Ã°i sem er Ã­ einhverju formi sett sem parameter Ã­ fall til Ã¾ess aÃ° Ã¾aÃ° verÃ°i sÃ­Ã°an kallaÃ° Ã¡ hann aftur.  T.d Ã¾egar Ã¾Ãº ert aÃ° senda http request Ã¡ server getur Ã¾Ãº sett fall sem parameter sem er sÃ­Ã°an kallaÃ° Ã¡ Ã¾egar Ã¾aÃ° bÃºiÃ°.
 
 ```javascript
 
@@ -23,7 +23,7 @@ jsonRq("/api/user/info", function (user) {
 
 ```
 
-2. Event loop er loopa sem checkar hvort eitthvağ hafi gerst og kallar á event eftir şví.
+2. Event loop er loopa sem checkar hvort eitthvaÃ° hafi gerst og kallar Ã¡ event eftir Ã¾vÃ­.
 
 3. 
 
@@ -35,9 +35,10 @@ var el = document.getElementById('username');
 el.addEventListener('blur', checkUsername, false);
 ```
 
-4. Şağ şığir ağ useCapture er false şannig ağ şağ í bubbling phase í stağin fyrir capture phase sem lætur şağ event vera kallağ á á undan.
+4. ÃaÃ° Ã¾Ã½Ã°ir aÃ° useCapture er false Ã¾annig aÃ° Ã¾aÃ° Ã­ bubbling phase Ã­ staÃ°in fyrir capture phase sem lÃ¦tur Ã¾aÃ° event vera kallaÃ° Ã¡ Ã¡ undan.
 
 5. 
-    stopPropagation kemur í veg fyrir ağ şağ verği kallağ á event handlerana sem koma á eftir.
-    preventDefault kemur í veg fyrir ağ şağ verği kallağ á default event handlerinn.
+    stopPropagation kemur Ã­ veg fyrir aÃ° Ã¾aÃ° verÃ°i kallaÃ° Ã¡ event handlerana sem koma Ã¡ eftir.
+    preventDefault kemur Ã­ veg fyrir aÃ° Ã¾aÃ° verÃ°i kallaÃ° Ã¡ default event handlerinn.
     
+6. https://files.gudmunduro.com/JSVerk/7/
