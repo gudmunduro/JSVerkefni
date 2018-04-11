@@ -1,12 +1,68 @@
 (function() {
 
-    var $imgs = $('#gallery img');                  // Store all images
-    var $buttons = $('#buttons');                   // Store buttons element
+    var imgs = [
+      {
+        name: "Rabbit",
+        url: "img/p1.jpg",
+        tags: "Animators, Illustrators" 
+      },
+      {
+        name: "Sea",
+        url: "img/p2.jpg",
+        tags: "Photographers, Filmmakers" 
+      },
+      {
+        name: "Deer",
+        url: "img/p3.jpg",
+        tags: "Photographers, Filmmakers" 
+      },
+      {
+        name: "New York Street Map",
+        url: "img/p4.jpg",
+        tags: "Designers" 
+      },
+      {
+        name: "Trumpet Playe",
+        url: "img/p5.jpg",
+        tags: "Photographers, Filmmakers" 
+      },
+      {
+        name: "Typographic Study",
+        url: "img/p6.jpg",
+        tags: "Designers, Illustrators" 
+      },
+      {
+        name: "Bicycle Japan",
+        url: "img/p7.jpg",
+        tags: "Photographers" 
+      },
+      {
+        name: "Aqua Logo",
+        url: "img/p8.jpg",
+        tags: "Designers" 
+      },
+      {
+        name: "Ghost",
+        url: "img/p9.jpg",
+        tags: "Animators, Illustrators" 
+      }
+    ]  // Store all images
+
+
+    var buttons = document.getElementById("buttons"); // Store buttons element
+    var gallery = document.getElementById("gallery");
     var tagged = {};                                // Create tagged object
   
-    $imgs.each(function() {                         // Loop through images and
-      var img = this;                               // Store img in variable
-      var tags = $(this).data('tags');              // Get this element's tags
+    imgs.forEach(function(imgValues) {                         // Loop through images and
+      let img = document.createElement("img");
+      img.src = imgValues.url;
+      img.alt = imgValues.name;
+      img.dataset.tags = imgValues.tags;
+      imgValues.element = img;
+
+      gallery.appendChild(imgValues.element);
+
+      var tags = imgValues.tags; // Get this element's tags
   
       if (tags) {                                   // If the element had tags
         tags.split(',').forEach(function(tagName) { // Split at comma and
@@ -17,33 +73,48 @@
         });
       }
     });
-  
-    $('<button/>', {                                 // Create empty button
-      text: 'Show All',                              // Add text 'show all'
-      class: 'active',                               // Make it active
-      click: function() {                            // Add onclick handler to
-        $(this)                                      // Get the clicked on button
-          .addClass('active')                        // Add the class of active
-          .siblings()                                // Get its siblings
-          .removeClass('active');                    // Remove active from siblings
-        $imgs.show();                                // Show all images
+
+    let button = document.createElement("button");
+    button.innerText = "Show all";
+    button.className = "active";
+    button.addEventListener('click', function () {
+      for (let child of this.parentElement.children) {
+        child.classList.remove('active');
       }
-    }).appendTo($buttons);                           // Add to buttons
-  
-    $.each(tagged, function(tagName) {               // For each tag name
-      $('<button/>', {                               // Create empty button
-        text: tagName + ' (' + tagged[tagName].length + ')', // Add tag name
-        click: function() {                          // Add click handler
-          $(this)                                    // The button clicked on
-            .addClass('active')                      // Make clicked item active
-            .siblings()                              // Get its siblings
-            .removeClass('active');                  // Remove active from siblings
-          $imgs                                      // With all of the images
-            .hide()                                  // Hide them
-            .filter(tagged[tagName])                 // Find ones with this tag
-            .show();                                 // Show just those images
-        }
-      }).appendTo($buttons);                         // Add to the buttons
+      this.classList.add("active");
+      imgs.forEach(function (img) {
+        img.element.style.display = "";
+      });
+    });
+    buttons.appendChild(button);
+
+    for (let tagName in tagged) {
+        let button = document.createElement("button");
+        button.innerText = tagName + ' (' + tagged[tagName].length + ')';
+        button.addEventListener('click', function () {
+            for (let child of this.parentElement.children) {
+              child.classList.remove('active');
+            }
+            this.classList.add("active");
+            imgs.forEach(function (img) {
+              img.element.style.display = tagged[tagName].includes(img.element) ? "none" : "";
+              console.log(img.element.style.display);
+            });
+        });
+        buttons.appendChild(button);
+    }
+
+    document.getElementById("filter-search").addEventListener('keydown', function (e) {
+      if (e.target.value === "")
+      {
+        imgs.forEach(function (img) {
+          img.element.style.display = "";
+        });
+        return;
+      }
+      imgs.forEach(function (img) {
+        img.element.style.display = img.tags.includes(e.target.value) ? "none" : "";
+      });
     });
   
   }());
