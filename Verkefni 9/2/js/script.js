@@ -52,6 +52,7 @@
     var buttons = document.getElementById("buttons"); // Store buttons element
     var gallery = document.getElementById("gallery");
     var tagged = {};                                // Create tagged object
+    var currentTag = "";
   
     imgs.forEach(function(imgValues) {                         // Loop through images and
       let img = document.createElement("img");
@@ -78,6 +79,7 @@
     button.innerText = "Show all";
     button.className = "active";
     button.addEventListener('click', function () {
+      currentTag = "";
       for (let child of this.parentElement.children) {
         child.classList.remove('active');
       }
@@ -92,28 +94,30 @@
         let button = document.createElement("button");
         button.innerText = tagName + ' (' + tagged[tagName].length + ')';
         button.addEventListener('click', function () {
+            currentTag = tagName;
             for (let child of this.parentElement.children) {
               child.classList.remove('active');
             }
             this.classList.add("active");
             imgs.forEach(function (img) {
-              img.element.style.display = tagged[tagName].includes(img.element) ? "none" : "";
-              console.log(img.element.style.display);
+              img.element.style.display = tagged[tagName].includes(img.element) ? "" : "none";
             });
         });
         buttons.appendChild(button);
     }
 
-    document.getElementById("filter-search").addEventListener('keydown', function (e) {
+    document.getElementById("filter-search").addEventListener('input', function (e) {
+      let query = this.value.trim().toLowerCase();
+
       if (e.target.value === "")
       {
         imgs.forEach(function (img) {
-          img.element.style.display = "";
+          img.element.style.display = img.tags.trim().includes(currentTag) ? "" : "none";
         });
         return;
       }
       imgs.forEach(function (img) {
-        img.element.style.display = img.tags.includes(e.target.value) ? "none" : "";
+        img.element.style.display = (img.tags.trim().toLowerCase().includes(query) && img.tags.trim().includes(currentTag)) ? "" : "none";
       });
     });
   
